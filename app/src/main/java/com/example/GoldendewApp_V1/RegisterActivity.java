@@ -1,5 +1,6 @@
 package com.example.GoldendewApp_V1;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -22,10 +23,12 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText et_KOR, et_RESIDENT1, et_CELLPHONE, et_TXADDR1, et_TXADDR2, et_EMAIL;
-    private Button btn_register;
+    private Button btn_register, btn_check;
     private CheckBox chk_EMAIL, chk_SMS, chk_DM, chk_TM, chk_YNMARRY, chk_YNACCEPT;
     private EditText edt_DTMARRY, edt_DTBIRTH;
     private TextView et_storecode;
+    private boolean check;
+    private AlertDialog dialog;
 
 
 
@@ -61,6 +64,70 @@ public class RegisterActivity extends AppCompatActivity {
         chk_YNACCEPT = findViewById(R.id.chk_YNACCEPT);
         RadioGroup Gender = (RadioGroup)findViewById(R.id.Gender);
         btn_register = findViewById(R.id.btn_login);
+        btn_check = findViewById(R.id.btn_check);
+
+        btn_check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userKor = et_KOR.getText().toString();
+                String userCellphone = et_CELLPHONE.getText().toString();
+                String userDtbirth = edt_DTBIRTH.getText().toString();
+                if (check){
+                    return;
+                }
+                if(userKor.equals("")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    dialog = builder.setMessage("이름은 빈칸일 수 없습니다")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                    return;
+                }
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+                            if (success == true) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                dialog = builder.setMessage("사용할 수 있는 아이디입니다")
+                                        .setPositiveButton("확인", null)
+                                        .create();
+                                dialog.show();
+                                et_KOR.setEnabled(false);
+                                et_CELLPHONE.setEnabled(false);
+                                et_RESIDENT1.setEnabled(false);
+                                check = true;
+
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                dialog = builder.setMessage("이미 가입된 회원입니다")
+                                        .setNegativeButton("확인", null)
+                                        .create();
+                                dialog.show();
+                                et_TXADDR1.setEnabled(false);
+                                et_TXADDR2.setEnabled(false);
+                                et_EMAIL.setEnabled(false);
+                                edt_DTBIRTH.setEnabled(false);
+                                edt_DTMARRY.setEnabled(false);
+                                btn_register.setEnabled(false);
+
+                            }
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                RegisterCheck registerCheck = new RegisterCheck(userKor, userCellphone, userDtbirth, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                queue.add(registerCheck);
+
+
+
+
+            }
+        });
 
 
 

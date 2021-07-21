@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="@color/purple_200">
 
     <TextView
         android:id="@+id/textView13"
@@ -15,8 +16,11 @@
         android:layout_marginTop="60dp"
         android:text="결혼기념일/결혼예정일"
         android:textSize="20dp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+
+        />
 
     <CheckBox
         android:id="@+id/chk_DM"
@@ -26,7 +30,9 @@
         android:layout_marginLeft="180dp"
         android:text="Y"
         app:layout_constraintStart_toEndOf="@+id/chk_EMAIL"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="@+id/textView7"
+        android:textColor="@color/white"
+/>
 
     <CheckBox
         android:id="@+id/chk_TM"
@@ -34,7 +40,9 @@
         android:layout_height="30dp"
         android:text="Y"
         app:layout_constraintStart_toStartOf="@+id/chk_DM"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        android:textColor="@color/white"
+/>
 
     <CheckBox
         android:id="@+id/chk_SMS"
@@ -43,7 +51,9 @@
         android:layout_marginTop="20dp"
         android:text="Y"
         app:layout_constraintStart_toStartOf="@+id/chk_EMAIL"
-        app:layout_constraintTop_toBottomOf="@+id/chk_EMAIL" />
+        app:layout_constraintTop_toBottomOf="@+id/chk_EMAIL"
+        android:textColor="@color/white"
+/>
 
     <TextView
         android:id="@+id/textView5"
@@ -53,7 +63,9 @@
         android:text="문자메시지"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:textColor="@color/white"
+/>
 
     <TextView
         android:id="@+id/textView6"
@@ -62,7 +74,10 @@
         android:text="카탈로그"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="@+id/textView5"
+        android:textColor="@color/white"
+/>
+
 
     <TextView
         android:id="@+id/textView7"
@@ -73,7 +88,9 @@
         android:text="전화"
         android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@+id/chk_EMAIL"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        android:textColor="@color/white"
+/>
 
     <EditText
         android:id="@+id/et_EMAIL"
@@ -84,7 +101,9 @@
         android:hint="이메일주소"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/et_TXADDR2" />
+        app:layout_constraintTop_toBottomOf="@+id/et_TXADDR2"
+        android:textColorHint="@color/white"
+/>
 
     <EditText
         android:id="@+id/et_STORE"
@@ -95,9 +114,12 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="이름"
+        android:textColorHint="@color/white"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:outlineAmbientShadowColor="@color/white"
+/>
 
     <EditText
         android:id="@+id/et_RESIDENT1"
@@ -108,8 +130,10 @@
         android:hint="법정생년월일(6자리)"
         android:inputType="number"
         android:maxLength="6"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/et_STORE" />
+        app:layout_constraintTop_toBottomOf="@+id/et_STORE"
+/>
 
     <EditText
         android:id="@+id/et_CELLPHONE"
@@ -119,8 +143,10 @@
         android:ems="10"
         android:hint="휴대전화번호"
         android:inputType="phone"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/et_RESIDENT1" />
+        app:layout_constraintTop_toBottomOf="@+id/et_RESIDENT1"
+/>
 
     <EditText
         android:id="@+id/et_TXADDR1"
@@ -130,8 +156,10 @@
         android:ems="10"
         android:hint="주소"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/et_CELLPHONE" />
+        app:layout_constraintTop_toBottomOf="@+id/et_CELLPHONE"
+/>
 
     <EditText
         android:id="@+id/et_TXADDR2"
@@ -142,7 +170,9 @@
         android:hint="상세주소"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/et_TXADDR1" />
+        app:layout_constraintTop_toBottomOf="@+id/et_TXADDR1"
+        android:textColorHint="@color/white"
+/>
 
     <Button
         android:id="@+id/btn_login"
@@ -152,7 +182,9 @@
         android:layout_marginLeft="468dp"
         android:text="회원가입"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/chk_YNACCEPT" />
+        app:layout_constraintTop_toTopOf="@+id/chk_YNACCEPT"
+
+        />
 
     <TextView
         android:id="@+id/textView2"
@@ -161,8 +193,10 @@
         android:layout_marginTop="30dp"
         android:text="골든듀 회원가입"
         android:textSize="30dp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+/>
 
     <TextView
         android:id="@+id/textView3"
@@ -172,7 +206,9 @@
         android:text="고객서비스 수신 동의"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/et_EMAIL" />
+        app:layout_constraintTop_toBottomOf="@+id/et_EMAIL"
+        android:textColor="@color/white"
+/>
 
     <TextView
         android:id="@+id/textView9"
@@ -182,7 +218,8 @@
         android:text="추가입력사항"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/chk_TM" />
+        app:layout_constraintTop_toBottomOf="@+id/chk_TM"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/textView4"
@@ -192,7 +229,9 @@
         android:text="E-MAIL"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:textColor="@color/white"
+/>
 
     <TextView
         android:id="@+id/textView8"
@@ -201,7 +240,10 @@
         android:text="상품관련 홍모 및 이벤트 정보, 회원 특별혜택 안내를 받으시겠습니까?"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:textColor="@color/white"
+
+        />
 
     <CheckBox
         android:id="@+id/chk_EMAIL"
@@ -211,7 +253,9 @@
         android:layout_marginLeft="112dp"
         android:text="Y"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        android:textColor="@color/white"
+/>
 
     <RadioGroup
         android:id="@+id/Gender"
@@ -227,13 +271,17 @@
             android:id="@+id/btn_MAN"
             android:layout_width="70dp"
             android:layout_height="30dp"
-            android:text="남성" />
+            android:text="남성"
+            android:textColor="@color/white"
+/>
 
         <RadioButton
             android:id="@+id/btn_WOMAN"
             android:layout_width="70dp"
             android:layout_height="30dp"
-            android:text="여성" />
+            android:text="여성"
+            android:textColor="@color/white"
+/>
     </RadioGroup>
 
     <androidx.constraintlayout.widget.Barrier
@@ -248,7 +296,9 @@
         android:layout_height="wrap_content"
         android:text="추가 입력 사항을 작성해 주시면 생일 및 결혼기념일에 사용 가능한 축하 바우처를 발행해 드립니다."
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:textColor="@color/white"
+/>
 
     <TextView
         android:id="@+id/textView12"
@@ -257,8 +307,10 @@
         android:layout_marginTop="40dp"
         android:text="생년월일"
         android:textSize="20dp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/et_STORE"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+/>
 
     <EditText
         android:id="@+id/edt_DTBIRTH"
@@ -268,10 +320,12 @@
         android:layout_marginLeft="180dp"
         android:ems="10"
         android:hint="ex)19991212  8자리로 입력해 주세요."
-        android:maxLength="8"
         android:inputType="date"
+        android:maxLength="8"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        android:textColorHint="@color/white"
+/>
 
     <EditText
         android:id="@+id/edt_DTMARRY"
@@ -282,20 +336,25 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="ex)19991212  8자리로 입력해 주세요."
-        android:maxLength="8"
         android:inputType="date"
+        android:maxLength="8"
         app:layout_constraintStart_toStartOf="@+id/edt_DTBIRTH"
-        app:layout_constraintTop_toBottomOf="@+id/edt_DTBIRTH" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_DTBIRTH"
+        android:textColorHint="@color/white"
+  />
 
     <CheckBox
         android:id="@+id/chk_YNMARRY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="286dp"
-        android:layout_marginLeft="286dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginLeft="288dp"
+        android:layout_marginTop="12dp"
         android:text="Y"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edt_DTMARRY" />
+        app:layout_constraintTop_toTopOf="@+id/edt_DTMARRY"
+        android:textColor="@color/white"
+/>
 
     <TextView
         android:id="@+id/tx_SEX"
@@ -304,7 +363,8 @@
         android:text="TextView"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/Gender"
-        app:layout_constraintTop_toTopOf="@+id/Gender" />
+        app:layout_constraintTop_toTopOf="@+id/Gender"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textView10"
@@ -316,7 +376,9 @@
         android:text="개인정보 제공에 동의합니다."
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        android:textColor="@color/white"
+/>
 
     <CheckBox
         android:id="@+id/chk_YNACCEPT"
@@ -327,15 +389,20 @@
         android:layout_marginTop="60dp"
         android:text="Y"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/edt_DTMARRY" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_DTMARRY"
+        android:textColor="@color/white"
+/>
 
     <Button
         android:id="@+id/btn_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="중복확인"
-        tools:layout_editor_absoluteX="346dp"
-        tools:layout_editor_absoluteY="184dp" />
+        android:layout_width="220dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:text="중 복 확 인"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/et_CELLPHONE"
+        app:layout_constraintTop_toTopOf="@+id/et_CELLPHONE" />
 
     <TextView
         android:id="@+id/et_storecode"
@@ -347,5 +414,17 @@
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/Gender"
         app:layout_constraintTop_toTopOf="@+id/Gender" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+
+        android:text="본 인 인 증"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/et_RESIDENT1"
+        app:layout_constraintTop_toTopOf="@+id/et_RESIDENT1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
