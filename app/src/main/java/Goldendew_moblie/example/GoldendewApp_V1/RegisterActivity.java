@@ -1,4 +1,4 @@
-package com.example.GoldendewApp_V1;
+package Goldendew_moblie.example.GoldendewApp_V1;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.GoldendewApp_V1.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText et_KOR, et_RESIDENT1, et_CELLPHONE, et_TXADDR1, et_TXADDR2, et_EMAIL;
-    private Button btn_register, btn_check;
+    private Button btn_register, btn_check, btn_certificate;
     private CheckBox chk_EMAIL, chk_SMS, chk_DM, chk_TM, chk_YNMARRY, chk_YNACCEPT;
     private EditText edt_DTMARRY, edt_DTBIRTH;
     private TextView et_storecode;
@@ -38,10 +39,16 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
+
+
+
+
         Intent intent1 = getIntent();
         Bundle bundle = intent1.getExtras();
 
         String STORECOD = bundle.getString("STORECODE");
+
+
 
         et_storecode = findViewById(R.id.et_storecode);
         et_storecode.setText(STORECOD);
@@ -65,19 +72,38 @@ public class RegisterActivity extends AppCompatActivity {
         RadioGroup Gender = (RadioGroup)findViewById(R.id.Gender);
         btn_register = findViewById(R.id.btn_login);
         btn_check = findViewById(R.id.btn_check);
+        btn_certificate = findViewById(R.id.btn_certificate);
 
+        //등록화면 이동 후 이름, 생년월일, 휴대전화 이외 텍스트뷰 수정 불가//
+        btn_certificate.setEnabled(false);
+        et_TXADDR1.setEnabled(false);
+        et_TXADDR2.setEnabled(false);
+        et_EMAIL.setEnabled(false);
+        chk_EMAIL.setEnabled(false);
+        chk_SMS.setEnabled(false);
+        chk_DM.setEnabled(false);
+        chk_TM.setEnabled(false);
+        edt_DTBIRTH.setEnabled(false);
+        edt_DTMARRY.setEnabled(false);
+        chk_YNACCEPT.setEnabled(false);
+        btn_register.setEnabled(false);
+        chk_YNMARRY.setEnabled(false);
+
+
+        //////중복확인 액티비티
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String userKor = et_KOR.getText().toString();
+                String userDtbirth = et_RESIDENT1.getText().toString();
                 String userCellphone = et_CELLPHONE.getText().toString();
-                String userDtbirth = edt_DTBIRTH.getText().toString();
+
                 if (check){
                     return;
                 }
-                if(userKor.equals("")) {
+                if(userKor.equals("") || userDtbirth.equals("") || userCellphone.equals("")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog = builder.setMessage("이름은 빈칸일 수 없습니다")
+                    dialog = builder.setMessage("미입력된 항목이 있습니다.")
                             .setPositiveButton("확인", null)
                             .create();
                     dialog.show();
@@ -89,9 +115,9 @@ public class RegisterActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-                            if (success == true) {
+                            if (success) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("사용할 수 있는 아이디입니다")
+                                dialog = builder.setMessage("사용할 수 있는 아이디입니다. 본인인증을 진행해 주세요")
                                         .setPositiveButton("확인", null)
                                         .create();
                                 dialog.show();
@@ -99,6 +125,21 @@ public class RegisterActivity extends AppCompatActivity {
                                 et_CELLPHONE.setEnabled(false);
                                 et_RESIDENT1.setEnabled(false);
                                 check = true;
+                                btn_check.setText("가입가능");
+                                btn_check.setEnabled(false);
+                                btn_certificate.setEnabled(true);
+                                et_TXADDR1.setEnabled(true);
+                                et_TXADDR2.setEnabled(true);
+                                et_EMAIL.setEnabled(true);
+                                chk_EMAIL.setEnabled(true);
+                                chk_SMS.setEnabled(true);
+                                chk_DM.setEnabled(true);
+                                chk_TM.setEnabled(true);
+                                edt_DTBIRTH.setEnabled(true);
+                                edt_DTMARRY.setEnabled(true);
+                                chk_YNACCEPT.setEnabled(true);
+                                btn_register.setEnabled(true);
+
 
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
@@ -106,11 +147,17 @@ public class RegisterActivity extends AppCompatActivity {
                                         .setNegativeButton("확인", null)
                                         .create();
                                 dialog.show();
+                                btn_certificate.setEnabled(false);
                                 et_TXADDR1.setEnabled(false);
                                 et_TXADDR2.setEnabled(false);
                                 et_EMAIL.setEnabled(false);
+                                chk_EMAIL.setEnabled(false);
+                                chk_SMS.setEnabled(false);
+                                chk_DM.setEnabled(false);
+                                chk_TM.setEnabled(false);
                                 edt_DTBIRTH.setEnabled(false);
                                 edt_DTMARRY.setEnabled(false);
+                                chk_YNACCEPT.setEnabled(false);
                                 btn_register.setEnabled(false);
 
                             }
@@ -119,7 +166,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                RegisterCheck registerCheck = new RegisterCheck(userKor, userCellphone, userDtbirth, responseListener);
+                RegisterCheck registerCheck = new RegisterCheck(userKor, userDtbirth, userCellphone, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerCheck);
 
@@ -207,6 +254,8 @@ public class RegisterActivity extends AppCompatActivity {
                     userYnaccept = chk_YNACCEPT.getText().toString();
                 }
 
+                String storecode = et_storecode.getText().toString();
+
 
 
                 
@@ -220,7 +269,7 @@ public class RegisterActivity extends AppCompatActivity {
                             boolean success = jsonObject.getBoolean("success");
                             if (success) { //회원등록에 성공한 경
                                 Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "실", Toast.LENGTH_SHORT).show();
@@ -236,7 +285,7 @@ public class RegisterActivity extends AppCompatActivity {
                 //서버로 volley를 이용해서 요청
                 RegisterRequest registerRequest = new RegisterRequest(userKor, userResident1, userAddr1, userAddr2,userCellphone, userSex, userDtbirth,
                         userYnmarry,userDtmarry, userEmail, userYNEMAIL,
-                       userYNSMS, userYNDM, userYNTM,    userYnaccept,reponseLister);
+                       userYNSMS, userYNDM, userYNTM,    userYnaccept, storecode,reponseLister);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
 

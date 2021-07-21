@@ -1,4 +1,4 @@
-package com.example.GoldendewApp_V1;
+package Goldendew_moblie.example.GoldendewApp_V1;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -15,13 +15,14 @@ public class RegisterCheck extends StringRequest {
     private Map<String, String> map;
 
 
-    public RegisterCheck(String userKor, String userCellphone, String userDtbirth,Response.Listener<String> listener) {
+    public RegisterCheck(String userKor,  String userDtbirth, String userCellphone,Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("userKor", userKor);
-        map.put("userCellphone", userCellphone);
         map.put("userDtbirth", userDtbirth);
+        map.put("userCellphone", userCellphone);
+
 
     }
 

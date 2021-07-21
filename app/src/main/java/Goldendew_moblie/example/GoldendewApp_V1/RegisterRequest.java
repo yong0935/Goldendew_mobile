@@ -1,4 +1,4 @@
-package com.example.GoldendewApp_V1;
+package Goldendew_moblie.example.GoldendewApp_V1;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -10,14 +10,14 @@ import java.util.Map;
 public class RegisterRequest extends StringRequest {
 
     //서버 url 설정(php 파일 연동)
-    final static private String URL = "http://139.150.75.242/registertest";
+    final static private String URL = "http://139.150.75.242/registertest.php";
     private Map<String, String> map;
 
 
     public RegisterRequest(String userKor, String userResident1, String userAddr1,
                            String userAddr2, String userCellphone,String userSex,String userDtbirth
             , String userYnmarry, String userDtmarry,String userEmail,String userYNEMAIL, String userYNSMS, String userYNDM, String userYNTM,
-                            String userYnaccept,Response.Listener<String> listener) {
+                            String userYnaccept,String storecode,Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
@@ -36,6 +36,7 @@ public class RegisterRequest extends StringRequest {
         map.put("userYNDM", userYNDM);
         map.put("userYNTM", userYNTM);
         map.put("userYnaccept", userYnaccept);
+        map.put("storecode", storecode);
 
 
 

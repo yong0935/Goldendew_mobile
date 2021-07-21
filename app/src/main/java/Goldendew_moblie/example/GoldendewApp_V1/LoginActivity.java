@@ -1,5 +1,6 @@
-package com.example.GoldendewApp_V1;
+package Goldendew_moblie.example.GoldendewApp_V1;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,18 +9,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
+import com.example.GoldendewApp_V1.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText et_STORE;
     private Button btn_register, btn_information;
+    private AlertDialog dialog;
 
 
 
@@ -41,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(LoginActivity.this, CompanyInformation.class);
                 startActivity(intent);
             }
@@ -51,6 +49,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String STORECODE = et_STORE.getText().toString();
+
+                if (STORECODE.equals("")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    dialog = builder.setMessage("매장코드를 입력해주세요.")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                    return;
+                }
 
 
 

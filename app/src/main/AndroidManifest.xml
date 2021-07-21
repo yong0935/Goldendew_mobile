@@ -7,21 +7,21 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Goldendew_mobile"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoldendewAppV1"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CompanyInformation"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.CompanyInformation"></activity>
+        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.RegisterActivity" />
+        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -1,8 +1,10 @@
-package com.example.GoldendewApp_V1;
+package Goldendew_moblie.example.GoldendewApp_V1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.GoldendewApp_V1.R;
 
 public class CompanyInformation extends AppCompatActivity {
 
