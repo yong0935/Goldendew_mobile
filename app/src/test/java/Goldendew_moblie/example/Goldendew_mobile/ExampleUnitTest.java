@@ -1,4 +1,4 @@
-package Goldendew_moblie.example.GoldendewApp_V1;
+package Goldendew_moblie.example.Goldendew_mobile;
 
 import org.junit.Test;
 

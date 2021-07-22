@@ -7,21 +7,22 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Goldendew_mobile"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoldendewAppV1"
         android:usesCleartextTraffic="true">
-        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.CompanyInformation"></activity>
-        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.LoginActivity">
+        <activity android:name="Goldendew_moblie.example.Goldendew_mobile.Danal_API"></activity>
+        <activity android:name="Goldendew_moblie.example.Goldendew_mobile.CompanyInformation" />
+        <activity android:name="Goldendew_moblie.example.Goldendew_mobile.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.RegisterActivity" />
-        <activity android:name="Goldendew_moblie.example.GoldendewApp_V1.MainActivity"></activity>
+        <activity android:name="Goldendew_moblie.example.Goldendew_mobile.RegisterActivity" />
+        <activity android:name="Goldendew_moblie.example.Goldendew_mobile.MainActivity" />
     </application>
 
 </manifest>

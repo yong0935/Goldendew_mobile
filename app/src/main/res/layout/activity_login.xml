@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_200"
-    tools:context="Goldendew_moblie.example.GoldendewApp_V1.LoginActivity">
+    tools:context="Goldendew_moblie.example.Goldendew_mobile.LoginActivity">
 
     <EditText
         android:id="@+id/et_STORE"
@@ -13,13 +13,13 @@
         android:layout_height="64dp"
         android:layout_marginStart="204dp"
         android:layout_marginLeft="204dp"
-        android:layout_marginTop="524dp"
+        android:layout_marginTop="324dp"
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="매장코드를 입력해주세요."
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,23 +27,25 @@
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="128dp"
         android:background="@color/purple_200"
         android:text="회원가입 화면 이동"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_STORE" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="414dp"
-        android:layout_height="173dp"
+        android:layout_width="302dp"
+        android:layout_height="129dp"
         app:layout_constraintBottom_toTopOf="@+id/et_STORE"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621"
+        app:layout_constraintVertical_bias="0.237"
         app:srcCompat="@drawable/main" />
 
     <Button
